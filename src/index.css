@@ -1,0 +1,196 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GreenPoint Design System - Environmental Sustainability App */
+
+@layer base {
+  :root {
+    /* Background colors */
+    --background: 240 10% 98%;
+    --foreground: 240 10% 15%;
+    
+    /* Card and surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+    --card-shadow: 240 10% 85%;
+    
+    /* GreenPoint brand colors - Environmental theme */
+    --primary: 140 60% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 140 50% 85%;
+    --primary-dark: 140 70% 35%;
+    
+    /* Secondary earth tones */
+    --secondary: 240 5% 88%;
+    --secondary-foreground: 240 10% 25%;
+    --secondary-dark: 240 10% 75%;
+    
+    /* Accent colors for highlights */
+    --accent: 140 55% 90%;
+    --accent-foreground: 140 80% 25%;
+    
+    /* Muted colors for subtle elements */
+    --muted: 240 5% 92%;
+    --muted-foreground: 240 5% 55%;
+    
+    /* Interactive states */
+    --border: 240 10% 88%;
+    --input: 240 10% 92%;
+    --ring: 140 60% 45%;
+    
+    /* Status colors */
+    --success: 120 60% 45%;
+    --warning: 45 85% 55%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Component specific */
+    --radius: 12px;
+    --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.12);
+    
+    /* Navigation */
+    --nav-background: 0 0% 100%;
+    --nav-foreground: 240 10% 25%;
+    --nav-active: 140 60% 45%;
+  }
+
+}
+
+/* Custom Bootstrap overrides for GreenPoint theme */
+.btn-primary {
+  background-color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: hsl(var(--primary-dark));
+  border-color: hsl(var(--primary-dark));
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: hsl(var(--secondary));
+  border-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  border-radius: var(--radius);
+}
+
+.btn-outline-primary {
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+
+.btn-outline-primary:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  background-color: hsl(var(--card));
+}
+
+.form-control {
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--input));
+  padding: 12px 16px;
+}
+
+.form-control:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 0.2rem hsla(var(--ring), 0.25);
+}
+
+/* GreenPoint specific components */
+.greenpoint-card {
+  background: hsl(var(--card));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.greenpoint-card:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+.nav-bottom {
+  background: hsl(var(--nav-background));
+  border-top: 1px solid hsl(var(--border));
+  padding: 8px 0;
+}
+
+.nav-bottom .nav-link {
+  color: hsl(var(--muted-foreground));
+  text-align: center;
+  padding: 8px 12px;
+  transition: color 0.2s ease;
+}
+
+.nav-bottom .nav-link.active,
+.nav-bottom .nav-link:hover {
+  color: hsl(var(--nav-active));
+}
+
+.achievement-badge {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+  color: hsl(var(--primary-foreground));
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.notification-item {
+  border-left: 3px solid hsl(var(--primary));
+  background: hsl(var(--accent));
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .container-fluid {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  /* Mobile-first responsive containers */
+  @media (min-width: 768px) {
+    .container-fluid {
+      max-width: 800px;
+      padding: 0 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-fluid {
+      max-width: 1200px;
+      padding: 0 32px;
+    }
+  }
+}
